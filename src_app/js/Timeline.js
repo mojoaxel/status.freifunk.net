@@ -11,39 +11,60 @@ define(["marionette"],
 				// DOM element where the Timeline will be attached
 				var container = document.getElementById('timeline');
 
-				// Create a DataSet with data (enables two way data binding)
-				var data = new vis.DataSet([{
-					id: 1,
-					content: 'item 1',
-					start: '2013-04-20'
+				var groups = new vis.DataSet([{
+					id: 'weimarnetz',
+					content: 'weimarnetz',
+					className: 'weimarnetz'
 				}, {
-					id: 2,
-					content: 'item 2',
-					start: '2013-04-14'
-				}, {
-					id: 3,
-					content: 'item 3',
-					start: '2013-04-18'
-				}, {
-					id: 4,
-					content: 'item 4',
-					start: '2013-04-16',
-					end: '2013-04-19'
-				}, {
-					id: 5,
-					content: 'item 5',
-					start: '2013-04-25'
-				}, {
-					id: 6,
-					content: 'item 6',
-					start: '2013-04-27'
+					id: 'greifswald',
+					content: 'Freifunk Greifswald',
+					className: 'greifswald',
 				}]);
+
+				// Create a DataSet with data (enables two way data binding)
+				var items = new vis.DataSet([{
+						id: 'weimarnetz_000',
+						content: "Initialz\u00fcndung",
+						start: "2001-07-08T00",
+						group: 'weimarnetz'
+					}, {
+						id: 'weimarnetz_001',
+						content: "Gr\u00fcndung Weimarnetz e.V.",
+						start: "2005-05-31T00",
+						group: 'weimarnetz'
+					}, {
+						id: 'weimarnetz_002',
+						content: "Weimarnetz e.V. anerkannt gemeinn\u00fctzig",
+						start: "2011-11-15T00",
+						group: 'weimarnetz'
+					},
+
+					{
+						id: 'greifswald_000',
+						content: "Birth",
+						start: "2011-08-28",
+						group: 'greifswald'
+					}, {
+						id: 'greifswald_001',
+						content: "Rebirth",
+						start: "2014-06-19",
+						group: 'greifswald'
+					}, {
+						id: 'greifswald_002',
+						content: "eigenes Gateway",
+						start: "2014-09-12",
+						group: 'greifswald'
+					}
+				]);
 
 				// Configuration for the Timeline
 				var options = {};
 
 				// Create a Timeline
-				var timeline = new vis.Timeline(container, data, options);
+				var timeline = new vis.Timeline(container);
+				timeline.setOptions(options);
+				timeline.setGroups(groups);
+				timeline.setItems(items);
 			});
 
 		});

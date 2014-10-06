@@ -13,7 +13,7 @@ define(["Timeline"],
 		 * It is possible to overwrite the apiPath in development mode.
 		 * This is usefull if the app should habe access to a remote api-server while developing.
 		 */
-		//Timeline.settings.apiPath = 'http://192.168.10.107/TGW/api/';
+		//Timeline.settings.apiPath = 'http://192.168.10.107/timeline/api/';
 
 		/* ************************************************************************************ */
 		/* END-DEVELOPMENT-BLOCK */
