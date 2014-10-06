@@ -1,0 +1,38 @@
+{
+  "name": "timelines.freifunk.net",
+  "title": "Freifunk Timelines",
+  "description": "Chronicles of freifunk communities",
+  "version": "0.0.1",
+  "author": {
+    "name": "Alexander Wunschik",
+    "email": "dev@wunschik.net",
+    "url": "http://www.wunschik.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mojoaxel/timeline.freifunk.net.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mojoaxel/timeline.freifunk.net/issues"
+  },
+  "devDependencies": {
+    "bower": "~1.3.8",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-jst": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-requirejs": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-compress": "latest",
+    "grunt-strip-code": "latest",
+    "grunt-jsbeautifier": "latest",
+    "grunt-bowercopy": "~1.1.0",
+    "grunt-license-bower": "latest",
+    "grunt-contrib-concat": "~0.5.0"
+  }
+}

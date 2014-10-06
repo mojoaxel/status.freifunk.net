@@ -1,0 +1,27 @@
+{
+  "name": "Freifunk Timeline",
+  "version": "0.1",
+  "authors": [
+    "Alexander Wunschik <dev@wunschik.net>"
+  ],
+  "description": "Chronicles of freifunk communities",
+  "keywords": [],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_components"
+  ],
+  "dependencies": {  
+  },
+  "devDependencies": {
+    "vis": "~3.5.0",
+    "jquery": "~1.11.0",
+    "almond": "~0.2.9",
+    "underscore": "~1.6.0",
+    "backbone": "~1.1.2",
+    "backbone-relational": "~0.8.8",
+    "marionette": "~2.1.0",
+    "moment": "~2.8.2"
+  }
+}
