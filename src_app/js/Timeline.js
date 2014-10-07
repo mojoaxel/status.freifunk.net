@@ -38,7 +38,7 @@ define(["marionette", "moment"],
 
 					{
 						id: 'greifswald_000',
-						content: "Birth",
+						content: '<a href="https://freifunk.net">Birth</a>',
 						start: "2011-08-28",
 						group: 'greifswald'
 					}, {
