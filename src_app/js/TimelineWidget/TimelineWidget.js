@@ -48,18 +48,19 @@ define(["Backbone", "Templates", "vis"],
 				//get only the dates for min/max calulation
 				var dates = _.pluck(events, 'start');
 				var minDate = new Date(moment.min(dates).clone().subtract(1, 'year').year() + "-01-01");
-				var maxDate = new Date(moment.max(dates).clone().add(5, 'year').year() + "-12-31");
+				var maxDate = new Date(moment.max(dates).clone().add(2, 'year').year() + "-12-31");
 
-				var ONEYEAR = 1000 * 60 * 60 * 24 * 365; //one year in ms
+				var ONEMONTH = 1000 * 60 * 60 * 24 * 31; //one month in ms
 				// Configuration for the Timeline
 				var options = {
 					orientation: 'top',
 					showCurrentTime: false,
 					type: 'point',
+					stack: true,
 					min: minDate,
 					max: maxDate,
-					zoomMin: ONEYEAR, //one year
-					zoomMax: ONEYEAR * 50, //50 years 
+					zoomMin: ONEMONTH, //one month
+					zoomMax: ONEMONTH * 12 * 50, //50 years 
 				};
 
 				// DOM element where the Timeline will be attached

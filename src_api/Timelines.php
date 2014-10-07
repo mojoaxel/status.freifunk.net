@@ -1,5 +1,5 @@
 <?php
-$jsonurl = "ffSummarizedDir.dummy.json";
+$jsonurl = "https://freifunk.net/map/ffSummarizedDir.json";
 
 $ffSummarizedDir_json = file_get_contents($jsonurl, 0, null, null);
 $ffSummarizedDir = json_decode($ffSummarizedDir_json);
