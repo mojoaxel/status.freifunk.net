@@ -1,7 +1,7 @@
-define(["Timeline"],
-	function(Timeline) {
+define([],
+	function() {
 
-		Timeline.settings = {
+		Settings = {
 			apiPath: '../api/'
 		};
 
@@ -13,11 +13,11 @@ define(["Timeline"],
 		 * It is possible to overwrite the apiPath in development mode.
 		 * This is usefull if the app should habe access to a remote api-server while developing.
 		 */
-		//Timeline.settings.apiPath = 'http://192.168.10.107/timeline/api/';
+		Settings.apiPath = 'http://192.168.10.113/Timeline/api/';
 
 		/* ************************************************************************************ */
 		/* END-DEVELOPMENT-BLOCK */
 
-		return Timeline.settings;
+		return Settings;
 	}
 );

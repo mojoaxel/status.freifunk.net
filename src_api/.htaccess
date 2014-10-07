@@ -1,0 +1,14 @@
+<Files config.php>
+order allow,deny
+deny from all
+</Files>
+
+<Files common.php>
+order allow,deny
+deny from all
+</Files>
+
+Allow from all
+Options -Indexes
+
+Header set Access-Control-Allow-Origin "*"

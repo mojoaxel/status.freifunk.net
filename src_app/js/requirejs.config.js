@@ -1,39 +1,32 @@
 require.config({
 	paths: {
-		jquery: '../../bower_libs/jquery/jquery',
-		underscore: '../../bower_libs/underscore/underscore',
-		backbone: '../../bower_libs/backbone/backbone',
-		backboneRelational: '../../bower_libs/backbone/backbone-relational',
-		marionette: '../../bower_libs/marionette/backbone.marionette',
-		moment: '../../bower_libs/moment/moment',
+		jQuery: '../../bower_libs/jquery/jquery',
+		Underscore: '../../bower_libs/underscore/underscore',
+		Backbone: '../../bower_libs/backbone/backbone',
+		BackboneRelational: '../../bower_libs/backbone/backbone-relational',
 		vis: '../../bower_libs/vis/vis',
-		templates: "Templates"
+
+		moment: '../../bower_libs/moment/moment',
+		Templates: "Templates"
 	},
 	shim: {
-		jquery: {
+		jQuery: {
 			exports: 'jQuery'
 		},
-		underscore: {
+		Underscore: {
 			exports: '_'
 		},
-		backbone: {
-			deps: ['jquery', 'underscore'],
+		Backbone: {
+			deps: ['jQuery', 'Underscore'],
 			exports: 'Backbone'
 		},
-		backboneRelational: {
-			deps: ['backbone'],
+		BackboneRelational: {
+			deps: ['Backbone'],
 			exports: 'Backbone'
-		},
-		marionette: {
-			deps: ['backbone'],
-			exports: 'Marionette'
 		},
 		vis: {
 			deps: ['moment'],
 			exports: 'vis'
-		},
-		templates: {
-			exports: 'Templates'
 		}
 	},
 	config: {

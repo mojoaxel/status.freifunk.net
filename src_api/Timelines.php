@@ -1,5 +1,4 @@
 <?php
-
 $jsonurl = "ffSummarizedDir.dummy.json";
 
 $ffSummarizedDir_json = file_get_contents($jsonurl, 0, null, null);

@@ -76,8 +76,7 @@ module.exports = function(grunt) {
 					jQuery: true
 				},
 				ignores: [
-					'src_app/js/Templates.js',
-					'src_app/js/libs/*'
+					'src_app/js/Templates.js'
 				]
 			},
 			all: ['src_app/js/**/*.js']
@@ -205,8 +204,8 @@ module.exports = function(grunt) {
 				options: {
 					baseUrl: "src_app/js/",
 					name: '../../bower_components/almond/almond',
-					include: ['AppStarter'],
-					insertRequire: ['AppStarter'],
+					include: ['TimelineApp'],
+					insertRequire: ['TimelineApp'],
 					mainConfigFile: 'src_app/js/requirejs.config.js',
 					out: 'DEVELOPMENT/app/js/app.js',
 					wrap: true,
@@ -220,8 +219,8 @@ module.exports = function(grunt) {
 				options: {
 					baseUrl: "src_app/js/",
 					name: '../../bower_components/almond/almond',
-					include: ['AppStarter'],
-					insertRequire: ['AppStarter'],
+					include: ['TimelineApp'],
+					insertRequire: ['TimelineApp'],
 					mainConfigFile: 'src_app/js/requirejs.config.js',
 					out: 'DISTRIBUTION/app/js/app.js',
 					wrap: false,
