@@ -3,7 +3,6 @@ require.config({
 		jQuery: '../../bower_libs/jquery/jquery',
 		Underscore: '../../bower_libs/underscore/underscore',
 		Backbone: '../../bower_libs/backbone/backbone',
-		BackboneRelational: '../../bower_libs/backbone/backbone-relational',
 		vis: '../../bower_libs/vis/vis',
 
 		moment: '../../bower_libs/moment/moment',
@@ -18,10 +17,6 @@ require.config({
 		},
 		Backbone: {
 			deps: ['jQuery', 'Underscore'],
-			exports: 'Backbone'
-		},
-		BackboneRelational: {
-			deps: ['Backbone'],
 			exports: 'Backbone'
 		},
 		vis: {
