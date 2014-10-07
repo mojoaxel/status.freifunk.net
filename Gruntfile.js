@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks("grunt-contrib-less");
 	grunt.loadNpmTasks("grunt-contrib-jst");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -22,7 +21,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('dev', [
 		'jsbeautifier', // JS Code-Formater
 		'jshint', // JS Code-Checker
-		'less:dev', // Erstelle CSS aus LESS
 		'jst', // Generiere eine Template Datei
 		'bowercopy', // Kopiert benötigte Inhalte aus externen Bibliotheken in das Zielverzeichnis;
 		'concat:css', // kombiniert css
@@ -38,7 +36,6 @@ module.exports = function(grunt) {
 		'clean', // Lösche Dev und Dist Verzeichnisse
 		'jsbeautifier', // JS Code-Formater
 		'jshint', // JS Code-Checker
-		'less:dist', // Erstelle CSS aus LESS
 		'jst', // Generiere eine Template Datei
 		'license', // Generiere eine Übersicht über alle verwendeten Bibliotheken
 		'bowercopy', // Kopiert benötigte Inhalte aus externen Bibliotheken in das Zielverzeichnis;
@@ -87,30 +84,6 @@ module.exports = function(grunt) {
 				]
 			},
 			all: ['src_app/js/**/*.js']
-		},
-
-		// compile less styles to css
-		less: {
-			dev: {
-				options: {
-					paths: ["src_app/style/less"],
-					sourceMap: true
-				},
-				files: {
-					"DEVELOPMENT/app/style/css/app.css": "src_app/style/less/app.less"
-				}
-			},
-			dist: {
-				options: {
-					paths: ["src_app/style/less"],
-					compress: true,
-					cleancss: true,
-					sourceMap: false
-				},
-				files: {
-					"DISTRIBUTION/app/style/css/app.css": "src_app/style/less/app.less"
-				}
-			}
 		},
 
 		// compile templates and concatenate them into src_app/js/Templates.js
@@ -170,7 +143,7 @@ module.exports = function(grunt) {
 				sourceMap: true
 			},
 			css: {
-				src: ['bower_libs/**/*.css'],
+				src: ['bower_libs/**/*.css', 'src_app/css/**/*.css'],
 				dest: 'DEVELOPMENT/app/css/app.css',
 			},
 		},

@@ -1,5 +1,5 @@
-define(["marionette"],
-	function(Marionette) {
+define(["marionette", "moment"],
+	function(Marionette, moment) {
 
 		/* Create the application */
 		var Timeline = new Marionette.Application();
@@ -8,10 +8,7 @@ define(["marionette"],
 			console.log("Timeline.onStart");
 
 			require(["vis"], function(vis) {
-				// DOM element where the Timeline will be attached
-				var container = document.getElementById('timeline');
-
-				var groups = new vis.DataSet([{
+				var groups = [{
 					id: 'weimarnetz',
 					content: 'weimarnetz',
 					className: 'weimarnetz'
@@ -19,10 +16,10 @@ define(["marionette"],
 					id: 'greifswald',
 					content: 'Freifunk Greifswald',
 					className: 'greifswald',
-				}]);
+				}];
 
 				// Create a DataSet with data (enables two way data binding)
-				var items = new vis.DataSet([{
+				var events = [{
 						id: 'weimarnetz_000',
 						content: "Initialz\u00fcndung",
 						start: "2001-07-08T00",
@@ -55,16 +52,38 @@ define(["marionette"],
 						start: "2014-09-12",
 						group: 'greifswald'
 					}
-				]);
+				];
 
+				//change all start-dates into moment-objects
+				events = _.each(events, function(event) {
+					event.start = moment.utc(event.start, ['YYYY-MM-DD', moment.ISO_8601]);
+					return event;
+				});
+
+				//get only the dates for min/max calulation
+				var dates = _.pluck(events, 'start');
+				var minDate = new Date(moment.min(dates).clone().subtract(1, 'year').year() + "-01-01");
+				var maxDate = new Date(moment.max(dates).clone().add(3, 'year').year() + "-12-31");
+
+				var ONEYEAR = 1000 * 60 * 60 * 24 * 365; //one year in ms
 				// Configuration for the Timeline
-				var options = {};
+				var options = {
+					orientation: 'top',
+					showCurrentTime: false,
+					type: 'point',
+					min: minDate,
+					max: maxDate,
+					zoomMin: ONEYEAR, //one year
+					zoomMax: ONEYEAR * 50, //50 years 
+				};
+
+				// DOM element where the Timeline will be attached
+				var container = document.getElementById('timeline');
 
 				// Create a Timeline
-				var timeline = new vis.Timeline(container);
-				timeline.setOptions(options);
-				timeline.setGroups(groups);
-				timeline.setItems(items);
+				console.log("creating timeline");
+				var timeline = new vis.Timeline(container, new vis.DataSet(events), options);
+				timeline.setGroups(new vis.DataSet(groups));
 			});
 
 		});

@@ -1,0 +1,16 @@
+.vis.timeline .item.dot {
+	background-color: #009ee0;
+	border-color: #009ee0;
+}
+
+.vis.timeline .currenttime {
+	background-color: #dc0067;
+}
+
+.vis.timeline .item .content {
+	overflow: hidden;
+	/*max-width: 200px;*/
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: auto;
+}

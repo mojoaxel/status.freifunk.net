@@ -19,7 +19,6 @@
     "bower": "~1.3.8",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "latest",
-    "grunt-contrib-less": "latest",
     "grunt-contrib-jst": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-contrib-uglify": "latest",
