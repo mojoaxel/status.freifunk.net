@@ -9,7 +9,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-strip-code');
 	grunt.loadNpmTasks('grunt-jsbeautifier');
 	grunt.loadNpmTasks('grunt-bowercopy');
@@ -23,7 +22,7 @@ module.exports = function(grunt) {
 		'jshint', // JS Code-Checker
 		'jst', // Generiere eine Template Datei
 		'bowercopy', // Kopiert benötigte Inhalte aus externen Bibliotheken in das Zielverzeichnis;
-		'concat:css', // kombiniert css
+		'concat:dev', // kombiniert css
 		'copy:dev', // Kopiere statische Dateien un den Ordner DEVELOPMENT
 		'requirejs:dev', // Prüfe Abhängigkeiten und erzeuge JS Datei; Abhängig von copy
 		'connect:dev', // Starte Server
@@ -39,14 +38,12 @@ module.exports = function(grunt) {
 		'jst', // Generiere eine Template Datei
 		'license', // Generiere eine Übersicht über alle verwendeten Bibliotheken
 		'bowercopy', // Kopiert benötigte Inhalte aus externen Bibliotheken in das Zielverzeichnis;
-		'concat:css', // kombiniert css
+		'concat:dist', // kombiniert css
 		'copy:dist', // Kopiere stitische Dateien un den Ordner DEVELOPMENT
 		'requirejs:dist', // Prüfe abhängigkeiten und erzeuge JS Datei
 		'strip_code:dist', // Entferne DEBUG-Code
 		'uglify', //Minimiere app.js
-		'cssmin', //Minimiere css
-		'compress', //erstelle ZIP-Archiv zur übergabe an Kunden
-		//'connect:dist' // Starte Server
+		'cssmin:dist', //Minimiere css
 	]);
 
 	//==========================================================================
@@ -142,9 +139,13 @@ module.exports = function(grunt) {
 			options: {
 				sourceMap: true
 			},
-			css: {
+			dev: {
 				src: ['bower_libs/**/*.css', 'src_app/css/**/*.css'],
 				dest: 'DEVELOPMENT/app/css/app.css',
+			},
+			dist: {
+				src: ['bower_libs/**/*.css', 'src_app/css/**/*.css'],
+				dest: 'DISTRIBUTION/app/css/app.css',
 			},
 		},
 
@@ -152,11 +153,6 @@ module.exports = function(grunt) {
 		copy: {
 			dev: {
 				files: [{
-					expand: true,
-					cwd: 'bower_libs',
-					src: ['**'],
-					dest: 'DEVELOPMENT/app/libs/'
-				}, {
 					expand: true,
 					cwd: 'src_api/',
 					src: ['**'],
@@ -180,11 +176,6 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: [{
-					expand: true,
-					cwd: 'bower_libs',
-					src: ['**'],
-					dest: 'DISTRIBUTION/app/libs/'
-				}, {
 					expand: true,
 					cwd: 'src_api/',
 					src: ['**'],
@@ -269,6 +260,14 @@ module.exports = function(grunt) {
 			}
 		},
 
+		cssmin: {
+			dist: {
+				files: {
+					'DISTRIBUTION/app/css/app.css': ['DISTRIBUTION/app/css/app.css']
+				}
+			}
+		},
+
 		license: {
 			dist: {
 				output: 'LICENSES.json'
@@ -333,20 +332,6 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				}
-			}
-		},
-
-		compress: {
-			main: {
-				options: {
-					archive: 'DISTRIBUTION/<%= target.name %>_<%= new Date().getTime() %>.zip'
-				},
-				files: [{
-					expand: true,
-					cwd: 'DISTRIBUTION',
-					src: ['**'],
-					dest: '.'
-				}]
 			}
 		}
 

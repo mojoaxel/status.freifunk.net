@@ -1,0 +1,45 @@
+{
+    "jquery@1.11.1": {
+        "licenses": [
+            "MIT"
+        ]
+    },
+    "backbone.marionette@2.1.0": {
+        "licenses": "UNKNOWN",
+        "homepage": "http://marionettejs.org"
+    },
+    "moment@2.8.3": {
+        "licenses": "MIT*"
+    },
+    "almond@0.2.9": {
+        "licenses": "MIT*",
+        "repository": "https://github.com/jrburke/almond"
+    },
+    "backbone@1.1.2": {
+        "licenses": "MIT*",
+        "repository": "https://github.com/jashkenas/backbone"
+    },
+    "backbone-relational@0.8.8": {
+        "licenses": "MIT*",
+        "repository": "https://github.com/PaulUithol/Backbone-relational"
+    },
+    "backbone.babysitter@0.1.5": {
+        "licenses": "MIT*",
+        "homepage": "https://github.com/marionettejs/backbone.babysitter",
+        "repository": "https://github.com/marionettejs/backbone.babysitter"
+    },
+    "backbone.wreqr@1.3.1": {
+        "licenses": "MIT*",
+        "homepage": "https://github.com/marionettejs/backbone.wreqr",
+        "repository": "https://github.com/marionettejs/backbone.wreqr"
+    },
+    "underscore@1.6.0": {
+        "licenses": "MIT*",
+        "repository": "https://github.com/jashkenas/underscore"
+    },
+    "vis@3.5.0": {
+        "licenses": "Apache*",
+        "repository": "https://github.com/almende/vis",
+        "homepage": "http://visjs.org/"
+    }
+}

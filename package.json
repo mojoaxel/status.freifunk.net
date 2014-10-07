@@ -27,7 +27,6 @@
     "grunt-contrib-clean": "latest",
     "grunt-contrib-connect": "latest",
     "grunt-contrib-copy": "latest",
-    "grunt-contrib-compress": "latest",
     "grunt-strip-code": "latest",
     "grunt-jsbeautifier": "latest",
     "grunt-bowercopy": "~1.1.0",
