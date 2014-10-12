@@ -123,9 +123,6 @@ module.exports = function(grunt) {
 
 					// Backbone
 					'backbone/backbone.js': 'backbone/backbone.js',
-					'backbone/backbone-relational.js': 'backbone-relational/backbone-relational.js',
-					// Marionette
-					'marionette/backbone.marionette.js': 'marionette/lib/backbone.marionette.js',
 
 					//Moment
 					'moment/moment.js': 'moment/moment.js',
