@@ -28,12 +28,24 @@ define(["Backbone", "Templates", "vis"],
 
 					_.each(community.get('timeline'), function(entry, index) {
 						var start = moment.utc(entry.timestamp, ['YYYY-MM-DD', moment.ISO_8601]);
-						var content = entry.decription; //FIXME changes in 0.4.4
+						var api = community.get('api');
+
+						// @see https://github.com/freifunk/api.freifunk.net/commit/33e52f79025520c2ccd78023c7d0865c7be91bfb
+						var content = entry.description || entry.decription;
+
+						var url = entry.url;
+						if (content && url) {
+							// decription and url are availible
+							content = '<a href="' + url + '">' + content + '</a>';
+						} else if (!content && url) {
+							// no decription but a url is availible
+							content = '<a href="' + url + '">' + url + '</a>';
+						}
 
 						if (!start.isValid()) {
 							console.error("Invalid timestamp in " + groupId + ".timeline[" + index + "]: \"" + entry.timestamp + "\"");
 						} else if (!content || content.length <= 0) {
-							console.error("missing description in " + groupId + ".timeline[" + index + "]");
+							console.error("missing description or url in " + groupId + ".timeline[" + index + "]");
 						} else {
 							events.push({
 								id: groupId + '_' + index,
