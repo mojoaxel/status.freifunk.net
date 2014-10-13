@@ -1,8 +1,8 @@
 require.config({
 	paths: {
 		jQuery: '../../bower_libs/jquery/jquery',
-		Underscore: '../../bower_libs/underscore/underscore',
-		Backbone: '../../bower_libs/backbone/backbone',
+		underscore: '../../bower_libs/underscore/underscore',
+		backbone: '../../bower_libs/backbone/backbone',
 		vis: '../../bower_libs/vis/vis',
 
 		moment: '../../bower_libs/moment/moment',
@@ -12,12 +12,12 @@ require.config({
 		jQuery: {
 			exports: 'jQuery'
 		},
-		Underscore: {
+		underscore: {
 			exports: '_'
 		},
-		Backbone: {
-			deps: ['jQuery', 'Underscore'],
-			exports: 'Backbone'
+		backbone: {
+			deps: ['jQuery', 'underscore'],
+			exports: 'backbone'
 		},
 		vis: {
 			deps: ['moment'],

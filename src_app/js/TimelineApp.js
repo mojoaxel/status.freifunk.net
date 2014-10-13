@@ -1,11 +1,12 @@
-define(["Backbone", "Settings", "AppRouter", "TimelineWidget/TimelinesCollection", "TimelineWidget/TimelineWidget"],
+define(["backbone", "Settings", "AppRouter", "TimelineWidget/TimelinesCollection", "TimelineWidget/TimelineWidget"],
 
 	function(Backbone, Settings, AppRouter, TimelinesCollection, TimelineWidget) {
 
-		/* Enable support for CORS headers.
-		 * This is needed to load data from a remote server */
+		/* 
+		 * Enable support for CORS headers.
+		 * This is needed to load data from a remote server
+		 */
 		Backbone.$.support.cors = true;
-
 
 		/*
 		 * set global AJAX timeout in milliseconds
@@ -28,9 +29,11 @@ define(["Backbone", "Settings", "AppRouter", "TimelineWidget/TimelinesCollection
 			pushState: false
 		});
 
-		appRouter.navigate("all", {
+		/*
+		appRouter.navigate("app", {
 			trigger: true
 		});
+		*/
 
 		return appRouter;
 	}

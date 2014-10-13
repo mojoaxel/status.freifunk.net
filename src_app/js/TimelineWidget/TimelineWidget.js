@@ -1,4 +1,4 @@
-define(["Backbone", "Templates", "vis"],
+define(["backbone", "Templates", "vis"],
 	function(Backbone, Templates, vis) {
 
 		TimelineWidget = Backbone.View.extend({
@@ -7,11 +7,18 @@ define(["Backbone", "Templates", "vis"],
 			el: "#timeline",
 
 			initialize: function() {
+				this.idsFilter = null;
 				console.log("TimelineWidget.initialize", this.collection);
 				this.collection.bind("reset sync", this.render, this);
 			},
 
+			setIdFilter: function(ids) {
+				console.log("TimelineWidget.setIdFilter: ", ids);
+				this.idsFilter = ids;
+			},
+
 			render: function() {
+				var idsFilter = this.idsFilter;
 				console.log("TimelineWidget.render: ", this.collection.models.length);
 
 				this.$el.empty().html(this.template(this.collection.models));
@@ -20,6 +27,11 @@ define(["Backbone", "Templates", "vis"],
 				var events = [];
 				_.each(this.collection.models, function(community) {
 					var groupId = community.get('id');
+
+					if (idsFilter && _.indexOf(idsFilter, groupId) < 0) {
+						return;
+					}
+
 					groups.push({
 						id: groupId,
 						content: community.get('name'),

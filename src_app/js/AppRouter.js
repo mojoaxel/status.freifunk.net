@@ -1,10 +1,13 @@
-define(["Backbone", "TimelineWidget/TimelinesCollection"],
+define(["backbone", "TimelineWidget/TimelinesCollection"],
 	function(Backbone, TimelinesCollection) {
 
 		var AppRouter = Backbone.Router.extend({
 
+			//https://github.com/jhudson8/backbone-query-parameters#named-route-parameters
+			namedParameters: true,
+
 			routes: {
-				"*path": "showWidget"
+				"*route": "showWidget"
 			},
 
 			initialize: function() {
@@ -15,9 +18,16 @@ define(["Backbone", "TimelineWidget/TimelinesCollection"],
 				});
 			},
 
-			showWidget: function(param) {
-				var that = this;
-				console.log("AppRouter.showWidget: ", param);
+			showWidget: function(route, params) {
+				console.log("AppRouter.showWidget: ", route, params);
+
+				if (params && params.indexOf('ids=') >= 0) {
+					var ids = params.split('ids=')[1].split(',');
+					if (ids) {
+						this.widget.setIdFilter(ids);
+					}
+				}
+
 				this.timelines.fetch();
 			}
 

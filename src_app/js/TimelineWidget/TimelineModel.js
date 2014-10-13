@@ -1,4 +1,4 @@
-define(["Backbone"],
+define(["backbone"],
 	function(Backbone) {
 
 		TimelineModel = Backbone.Model.extend({

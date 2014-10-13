@@ -34,4 +34,9 @@ To generate a deploment (minified) version of the webapp do:
 timeline.freifunk.net> grunt dist
 ```
 
-After that copy the content of the generated **DISTRIBUTION** folder to your webserver.
+After that copy (e.g. ftp) the content of the generated **DISTRIBUTION** folder to your webserver.
+
+
+## Options ##
+
+only show specific communities: **/app/#?ids=fuerth,erlangen**
