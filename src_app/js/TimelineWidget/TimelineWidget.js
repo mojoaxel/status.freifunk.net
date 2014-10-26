@@ -81,6 +81,7 @@ define(["backbone", "Templates", "vis"],
 					showCurrentTime: false,
 					type: 'point',
 					stack: true,
+					maxHeight: '600px',
 					min: minDate,
 					max: maxDate,
 					zoomMin: ONEMONTH, //one month
