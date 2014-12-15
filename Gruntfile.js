@@ -124,9 +124,15 @@ module.exports = function(grunt) {
 					// Backbone
 					'backbone/backbone.js': 'backbone/backbone.js',
 
-					//Moment
+					// Moment
 					'moment/moment.js': 'moment/moment.js',
-					'moment/locale/': 'moment/locale/'
+					'moment/locale/': 'moment/locale/',
+
+					// Boostrap
+					'bootstrap/css/bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+					'bootstrap/css/bootstrap.css.map': 'bootstrap/dist/css/bootstrap.css.map',
+					'bootstrap/fonts/': 'bootstrap/dist/fonts/',
+					'bootstrap/js/bootstrap.js': 'bootstrap/dist/js/bootstrap.js'
 				}
 			}
 		},
@@ -168,6 +174,11 @@ module.exports = function(grunt) {
 					cwd: 'src_app/style/img/',
 					src: ['**'],
 					dest: 'DEVELOPMENT/app/style/img'
+				}, {
+					expand: true,
+					cwd: 'bower_libs/bootstrap/dist/fonts/',
+					src: ['**'],
+					dest: 'DEVELOPMENT/app/style/fonts/'
 				}]
 			},
 			dist: {

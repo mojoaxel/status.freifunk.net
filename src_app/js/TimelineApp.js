@@ -1,6 +1,6 @@
-define(["backbone", "Settings", "AppRouter", "TimelineWidget/TimelinesCollection", "TimelineWidget/TimelineWidget"],
+define(["backbone", "bootstrap", "Settings", "AppRouter", "TimelineWidget/TimelinesCollection", "TimelineWidget/TimelineWidget"],
 
-	function(Backbone, Settings, AppRouter, TimelinesCollection, TimelineWidget) {
+	function(Backbone, Bootstrap, Settings, AppRouter, TimelinesCollection, TimelineWidget) {
 
 		/* 
 		 * Enable support for CORS headers.

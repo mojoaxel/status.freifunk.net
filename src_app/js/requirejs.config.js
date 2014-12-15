@@ -4,8 +4,8 @@ require.config({
 		underscore: '../../bower_libs/underscore/underscore',
 		backbone: '../../bower_libs/backbone/backbone',
 		vis: '../../bower_libs/vis/vis',
-
 		moment: '../../bower_libs/moment/moment',
+		bootstrap: '../../bower_libs/bootstrap/js/bootstrap',
 		Templates: "Templates"
 	},
 	shim: {
@@ -22,6 +22,10 @@ require.config({
 		vis: {
 			deps: ['moment'],
 			exports: 'vis'
+		},
+		bootstrap: {
+			deps: ['jQuery'],
+			exports: 'jQuery',
 		}
 	},
 	config: {
