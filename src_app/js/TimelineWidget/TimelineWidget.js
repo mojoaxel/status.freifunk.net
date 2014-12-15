@@ -10,6 +10,15 @@ define(["backbone", "Templates", "vis"],
 				this.idsFilter = null;
 				console.log("TimelineWidget.initialize", this.collection);
 				this.collection.bind("reset sync", this.render, this);
+
+				// redraw the timeöline on window resize
+				/*TODO
+				$(window).resize(function() {
+					if (this.timeline) {
+						this.timeline.redraw();
+					}
+				});
+				*/
 			},
 
 			setIdFilter: function(ids) {
@@ -81,7 +90,11 @@ define(["backbone", "Templates", "vis"],
 					showCurrentTime: false,
 					type: 'point',
 					stack: true,
+					height: '600px',
+					minHeight: '600px',
 					maxHeight: '600px',
+					autoHeight: true,
+					autoResize: false,
 					min: minDate,
 					max: maxDate,
 					zoomMin: ONEMONTH, //one month
@@ -95,8 +108,8 @@ define(["backbone", "Templates", "vis"],
 
 				// Create a Timeline
 				console.log("creating timeline");
-				var timeline = new vis.Timeline(container, new vis.DataSet(events), options);
-				timeline.setGroups(new vis.DataSet(groups));
+				this.timeline = new vis.Timeline(container, new vis.DataSet(events), options);
+				this.timeline.setGroups(new vis.DataSet(groups));
 
 				return this;
 			}

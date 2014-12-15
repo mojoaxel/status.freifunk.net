@@ -1,3 +1,7 @@
+.vis.timeline.root {
+	border: none;
+}
+
 .vis.timeline .item.dot {
 	background-color: #009ee0;
 	border-color: #009ee0;

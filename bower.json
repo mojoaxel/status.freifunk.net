@@ -15,7 +15,7 @@
   "dependencies": {  
   },
   "devDependencies": {
-    "vis": "~3.5.0",
+    "vis": "~3.7.2",
     "jquery": "~1.11.0",
     "almond": "~0.2.9",
     "underscore": "~1.6.0",
