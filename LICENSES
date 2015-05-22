@@ -1,0 +1,45 @@
+{
+    "jquery@1.11.3": {
+        "licenses": [
+            "MIT"
+        ]
+    },
+    "moment@2.8.4": {
+        "licenses": [
+            "MIT*"
+        ]
+    },
+    "almond@0.2.9": {
+        "licenses": [
+            "BSD",
+            "MIT"
+        ],
+        "repository": "https://github.com/jrburke/almond"
+    },
+    "backbone@1.1.2": {
+        "licenses": [
+            "MIT"
+        ],
+        "repository": "git+https://github.com/jashkenas/backbone"
+    },
+    "bootstrap@3.3.4": {
+        "licenses": [
+            "MIT"
+        ],
+        "homepage": "http://getbootstrap.com",
+        "repository": "git+https://github.com/twbs/bootstrap"
+    },
+    "underscore@1.6.0": {
+        "licenses": [
+            "MIT"
+        ],
+        "repository": "https://github.com/jashkenas/underscore"
+    },
+    "vis@3.7.2": {
+        "licenses": [
+            "MIT*"
+        ],
+        "repository": "https://github.com/almende/vis",
+        "homepage": "http://visjs.org/"
+    }
+}
