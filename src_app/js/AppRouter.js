@@ -1,5 +1,14 @@
-define(["backbone", "TimelineWidget/TimelinesCollection"],
-	function(Backbone, TimelinesCollection) {
+define(["backbone",
+		"TimelineWidget/TimelinesCollection",
+		"TimelineWidget/TimelineWidget",
+		"ServicesWidget/ServicesCollection",
+		"ServicesWidget/ServicesWidget"
+	],
+	function(Backbone,
+		TimelinesCollection,
+		TimelineWidget,
+		ServicesCollection,
+		ServicesWidget) {
 
 		var AppRouter = Backbone.Router.extend({
 
@@ -12,23 +21,38 @@ define(["backbone", "TimelineWidget/TimelinesCollection"],
 
 			initialize: function() {
 				console.log("AppRouter.initialize");
-				this.timelines = new TimelinesCollection();
-				this.widget = new TimelineWidget({
-					collection: this.timelines
-				});
 			},
 
 			showWidget: function(route, params) {
 				console.log("AppRouter.showWidget: ", route, params);
 
-				if (params && params.indexOf('ids=') >= 0) {
-					var ids = params.split('ids=')[1].split(',');
-					if (ids) {
-						this.widget.setIdFilter(ids);
+				if (route === "timeline") {
+					if (!this.timelines) {
+						this.timelines = new TimelinesCollection();
+						this.timelineWidget = new TimelineWidget({
+							collection: this.timelines
+						});
+						this.timelines.fetch();
 					}
+
+					if (params && params.indexOf('ids=') >= 0) {
+						var ids = params.split('ids=')[1].split(',');
+						if (ids) {
+							this.timelineWidget.setIdFilter(ids);
+						}
+					}
+					this.timelineWidget.render();
+				} else /*if (route === "services")*/ {
+					if (!this.services) {
+						this.services = new ServicesCollection();
+						this.servicesWidget = new ServicesWidget({
+							collection: this.services
+						});
+						this.services.fetch();
+					}
+					this.servicesWidget.render();
 				}
 
-				this.timelines.fetch();
 			}
 
 		});

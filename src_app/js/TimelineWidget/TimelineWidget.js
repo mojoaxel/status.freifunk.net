@@ -4,14 +4,14 @@ define(["backbone", "Templates", "vis"],
 		TimelineWidget = Backbone.View.extend({
 			template: JST.TimelineWidget,
 
-			el: "#timeline",
+			el: "#widget",
 
 			initialize: function() {
 				this.idsFilter = null;
 				console.log("TimelineWidget.initialize", this.collection);
 				this.collection.bind("reset sync", this.render, this);
 
-				// redraw the timeöline on window resize
+				// redraw the timeline on window resize
 				/*TODO
 				$(window).resize(function() {
 					if (this.timeline) {

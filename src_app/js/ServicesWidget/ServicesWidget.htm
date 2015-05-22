@@ -1,0 +1,22 @@
+<div id="service">
+	<h3><%= obj.name %></h3>
+	<ul>
+		<% _.each(obj.services, function(service) { %>
+		<li>
+			<%= service.serviceName ? service.serviceName+':' : '' %>
+
+			<% if (service.internalUri) { %>
+			<a href="<%= service.internalUri %>"><%= service.internalUri %></a>
+			<% } %>
+
+			<%= (service.internalUri && service.externalUri) ? ' - ' : '' %>
+
+			<% if (service.externalUri) { %>
+			<a href="<%= service.externalUri %>"><%= service.externalUri %></a>
+			<% } %>
+
+			<%= service.serviceDescription ? '('+service.serviceDescription+')' : '' %>
+		</li>
+		<% }); %>
+	</ul>
+</div>
